@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import WebsiteGallery from './website-gallery';
+import PGVGGallery from './pgvg-gallery';
 import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink, Play } from 'lucide-react';
 type Page='home'|'about'|'graphic'|'pgvg'|'website'|'3d'|'aigc';
 const items:{id:Page;label:string;note:string;className:string;emoji:string}[]=[
@@ -62,7 +63,7 @@ function Graphic(){return <section className="subpage graphic-page real-work-pag
  <div id="graphic-5" className="work-section"><SectionHead number="05" title="Brochure"/><div className="poster-project-grid brochure-project-grid"><ImageCarousel title="Brochure" kind="Print Design" images={[path(1),path(2)]}/></div></div>
  <div id="graphic-6" className="work-section"><SectionHead number="06" title="Bunting & Banner"/><div className="print-grid banners">{['Compasia','FansTag AI 01','FansTag AI 02'].map((title,i)=><a href={path(i+3)} target="_blank" key={title}><img src={path(i+3)} alt={title}/><span>{title}</span></a>)}</div></div>
  </section>}
-function PGVG(){return <section className="subpage pgvg-page real-work-page"><Title index="03" kicker="PHOTOGRAPHY + VIDEOGRAPHY" title="Photo & Video" copy=""/><SectionHead number="01" title="Photography"/><div className="photo-strip">{photos.map(x=><a href={x.src} target="_blank" key={x.title} aria-label={`View full ${x.title} photograph`}><img loading="lazy" src={x.src} alt={x.title}/><span>{x.title}</span></a>)}</div><SectionHead number="02" title="Videography"/><div className="video-grid dark-grid">{films.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
+function PGVG(){return <section className="subpage pgvg-page real-work-page"><Title index="03" kicker="PHOTOGRAPHY + VIDEOGRAPHY" title="Photo & Video" copy=""/><SectionHead number="01" title="Photography"/><div className="photo-strip">{photos.map(x=><a href={x.src} target="_blank" key={x.title} aria-label={`View full ${x.title} photograph`}><img loading="lazy" src={x.src} alt={x.title}/><span>{x.title}</span></a>)}</div><SectionHead number="02" title="Videography"/><PGVGGallery projects={films}/></section>}
 function Web(){return <WebsiteGallery/>}
 function Models(){return <section className="subpage models-page real-work-page"><Title index="05" kicker="BOOTH MODELLING" title="3D Modelling" copy=""/><div className="model-video-grid">{models.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
 function Lab(){return <section className="subpage lab-page real-work-page"><Title index="06" kicker="AI GENERATED VIDEO CONTENT" title="AIGC Video" copy=""/><SectionHead number="01" title="Commercial Video"/><div className="ai-video-grid">{commercial.map(x=><VideoCard key={x.title} {...x}/>)}</div><SectionHead number="02" title="Short Video"/><div className="ai-video-grid short-grid">{shortVideos.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
