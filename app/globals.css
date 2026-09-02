@@ -86,7 +86,7 @@
  .studio{padding:94px 18px 76px}.room{margin-top:28px;gap:16px}.studio-object,.mobile-about-card{min-height:168px;grid-template-columns:96px minmax(0,1fr);padding:18px!important;border-radius:22px;overflow:hidden}.studio-object .object-shape{width:82px!important;height:82px!important;border-radius:22px!important}.object-tip{font-size:14px;line-height:1.5}.object-tip small{font-size:18px}.object-tip svg{width:18px;height:18px}.book{display:none}
  .mobile-about-card{display:grid;position:relative;order:-1;width:100%;border:1px solid #dedad2;background:#fff;text-align:left;box-shadow:0 12px 30px #4e473d16}.mobile-about-card>span{grid-row:1/3;display:grid;place-items:center;width:82px;height:82px;border-radius:22px;background:#f1d471;font:10px/1.2 Arial;letter-spacing:.1em}.mobile-about-card>b{grid-column:2;align-self:end;padding:0 8px 4px;font:18px Georgia}.mobile-about-card>small{grid-column:2;align-self:start;padding:0 8px;font-size:14px;color:#6f6a62}.mobile-about-card>svg{position:absolute;right:24px;top:24px}
  .graphic-jump{max-width:100%;margin-inline:0;padding:0}.graphic-jump a{min-height:48px}
- .poster-project-grid,.website-link-grid,.model-video-grid,.video-grid,.dark-grid,.ai-video-grid,.short-grid,.print-grid,.print-grid.banners{width:100%;max-width:100%;grid-template-columns:minmax(0,1fr)!important;columns:auto!important}
+ .poster-project-grid,.website-link-grid,.model-video-grid,.video-grid,.dark-grid,.ai-video-grid,.short-grid,.print-grid,.print-grid.banners{width:100%;max-width:100%}
  .carousel-card,.website-card,.video-card,.flipbook,.print-grid a{width:100%;max-width:100%;min-width:0}.carousel-image,.carousel-image img,.print-grid img,.book-page img,.photo-strip img{max-width:100%;height:auto;object-fit:contain}
  .carousel-card footer,.video-card footer{gap:10px}.carousel-card h3,.video-card h3{overflow-wrap:anywhere}.carousel-actions{flex:0 0 auto}.carousel-actions>a,.carousel-controls button,.book-controls button,.video-card footer>a{min-width:44px;min-height:44px}
  .profile-section .book-page{width:100%;max-width:100%;aspect-ratio:708/1000}.profile-section .book-page img{width:100%;height:100%;object-fit:contain}.flipbook footer{flex-direction:column}.book-controls{width:100%;justify-content:space-between}.book-controls span{font-size:11px}
@@ -231,4 +231,114 @@
  .poster-project-grid{gap:18px}.graphic-page .carousel-card{max-width:520px;margin-inline:auto}.graphic-page .carousel-card h3{font-size:17px}
  .profile-section .flipbook{max-width:390px}.brochure-project-grid{grid-template-columns:minmax(0,1fr)}
  .video-card h3{font-size:17px}.mascot{transform:scale(.88);transform-origin:right bottom}
+}
+
+/* Fit the complete scrapbook composition below the navbar on laptops. */
+@media(min-width:1024px) and (max-width:1440px){
+ .about-scrapbook{
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:116px 40px 44px;
+ }
+ .about-scrapbook .book-stage{
+  /* zoom scales the decorations and controls without replacing 3D transforms. */
+  zoom:.88;
+  width:min(1193px,93.18vw,calc((100svh - 224px) * 2.06818));
+  margin:0;
+ }
+}
+
+/* Main page headings only; project and scrapbook text keep their alignment. */
+.section-title{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;margin:0 auto 32px}
+.section-title h1{margin:0 auto;max-width:100%}
+.section-title p{margin:0;text-align:center}
+.section-title span{max-width:560px;text-align:center}
+.about-scrapbook{position:relative;padding-top:174px}
+.about-page-header{position:absolute;top:100px;left:0;width:100%;padding:0 16px;text-align:center}
+.about-page-header h1{margin:0 auto;font:400 34px/1.1 Georgia,serif}
+@media(max-width:767px){
+ .about-scrapbook{padding-top:calc(154px + env(safe-area-inset-top))}
+ .about-page-header{top:calc(94px + env(safe-area-inset-top))}
+}
+
+/* Compact editorial project galleries on phones. */
+@media(max-width:767px){
+ .real-work-page,.graphic-page{padding-left:8px;padding-right:8px}
+ .poster-project-grid,
+ .profile-section .book-grid,
+ .print-grid,
+ .print-grid.banners,
+ .video-grid,
+ .pgvg-page .dark-grid,
+ .website-link-grid,
+ .model-video-grid,
+ .lab-page .ai-video-grid,
+ .lab-page .short-grid{
+  display:block;
+  width:100%;
+  max-width:none;
+  column-count:2;
+  column-width:auto;
+  column-gap:12px;
+ }
+ .poster-project-grid>.carousel-card,
+ .book-grid>.flipbook,
+ .print-grid>a,
+ .video-grid>.video-card,
+ .dark-grid>.video-card,
+ .website-link-grid>.website-card,
+ .model-video-grid>.video-card,
+ .lab-page .ai-video-grid>.video-card,
+ .lab-page .short-grid>.video-card{
+  display:inline-block;
+  width:100%;
+  max-width:none;
+  margin:0 0 18px;
+  break-inside:avoid;
+  vertical-align:top;
+ }
+ .graphic-page .carousel-card{max-width:none;margin:0 0 18px;padding:5px;border-radius:10px}
+ .graphic-page .carousel-image,
+ .graphic-page .carousel-image img,
+ .print-grid img,
+ .book-page img,
+ .video-card video{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+ }
+ .profile-section .flipbook{max-width:none;margin:0 0 18px}
+ .profile-section .book-page{width:100%;height:auto;min-height:0;padding:5px;aspect-ratio:auto;border-radius:0}
+ .profile-section .book-page img{width:100%;height:auto;object-fit:contain}
+ .real-work-page .video-card .video-frame,.real-work-page .video-card .video-frame video,.graphic-page .carousel-image{border-radius:0}
+ .print-grid a{padding:5px}
+ .print-grid span{padding:9px 3px 4px;font-size:15px}
+ .video-card,.website-card{min-width:0;align-self:start}
+ .video-card footer{align-items:center;gap:6px;padding:9px 2px 18px}
+ .video-card h3{font-size:15px;line-height:1.15}
+ .video-card footer>a{flex:0 0 36px;width:36px;min-width:36px;height:36px;min-height:36px}
+ .video-badge{left:7px;top:7px;padding:5px 7px;font-size:7px}
+ .visit-site{min-height:44px;margin-top:-8px;padding:10px 8px;gap:6px;font-size:8px;letter-spacing:.04em}
+ .carousel-card footer{display:grid;grid-template-columns:minmax(0,1fr);padding:9px 2px 5px}.graphic-page .carousel-card h3{font-size:15px;line-height:1.15}
+ .carousel-actions{justify-content:space-between;width:100%}.carousel-dots{padding:0;gap:2px}
+ .carousel-card footer small,.flipbook footer small{font-size:7px}
+ .carousel-actions>a,.carousel-controls button,.book-controls button{min-width:36px;min-height:36px;width:36px;height:36px}
+ .flipbook footer{gap:6px;padding:9px 2px 18px}.flipbook h3{font-size:15px}.book-controls{gap:4px}.book-controls span{font-size:7px}
+}
+@media(max-width:349px){
+ .poster-project-grid,
+ .profile-section .book-grid,
+ .print-grid,
+ .print-grid.banners,
+ .video-grid,
+ .pgvg-page .dark-grid,
+ .website-link-grid,
+ .model-video-grid,
+ .lab-page .ai-video-grid,
+ .lab-page .short-grid{column-count:1}
 }
