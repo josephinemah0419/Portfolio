@@ -263,6 +263,10 @@
  .about-page-header{top:calc(94px + env(safe-area-inset-top))}
 }
 
+/* The added SHOWCASE films use their native portrait dimensions on every screen. */
+.lab-page .short-grid .video-showcase .video-frame,
+.lab-page .short-grid .video-showcase video{aspect-ratio:auto;height:auto;object-fit:contain}
+
 /* Compact editorial project galleries on phones. */
 @media(max-width:767px){
  /* AIGC uses row-major Grid; desktop masonry is scoped above 767px. */
