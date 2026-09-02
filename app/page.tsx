@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import WebsiteGallery from './website-gallery';
 import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink, Play } from 'lucide-react';
 type Page='home'|'about'|'graphic'|'pgvg'|'website'|'3d'|'aigc';
 const items:{id:Page;label:string;note:string;className:string;emoji:string}[]=[
@@ -21,10 +22,6 @@ const logoWorks=[
 ];
 const photos=['100Plus','Alcohol','Bird','Flower','Fragrance'].map((title,i)=>({title,src:`/works/photos/photo-${String(i+1).padStart(2,'0')}.webp`}));
 const films=['Hola Hola Banana — Daily Routine','Superbstone','Superbstone Beauty Shot','Superbstone Q&A'].map((title,i)=>({title,video:`/works/films/film-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/films/film-${String(i+1).padStart(2,'0')}.jpg`}));
-const websites=[
- {title:'1826 Studio',url:'https://1826studio.com/',video:'/works/websites/website-01.mp4',poster:'/works/websites/website-01.jpg'},
- {title:'Hola Hola',url:'https://www.holahola.asia/',video:'/works/websites/website-02.mp4',poster:'/works/websites/website-02.jpg'},
- {title:'FansTag AI',url:'https://fanstag.asia/',video:'/works/websites/website-03.mp4',poster:'/works/websites/website-03.jpg'}];
 const models=['MIXUE Booth','CROCS Booth'].map((title,i)=>({title,video:`/works/models/model-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/models/model-${String(i+1).padStart(2,'0')}.jpg`}));
 const commercial=['AIGC System','Pellucid — Children','Pellucid — Elder','Pellucid','Solura — Testimonial','Solura','获客系统'].map((title,i)=>({title,video:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.jpg`,aspect:i===0||i===6?'landscape':'portrait'}));
 const shortVideos=['Jora 01','Jora 02'].map((title,i)=>({title,video:`/works/aigc/ai-video-${String(i+8).padStart(2,'0')}.mp4`,poster:`/works/aigc/ai-video-${String(i+8).padStart(2,'0')}.jpg`,aspect:'short'}));
@@ -66,7 +63,7 @@ function Graphic(){return <section className="subpage graphic-page real-work-pag
  <div id="graphic-6" className="work-section"><SectionHead number="06" title="Bunting & Banner"/><div className="print-grid banners">{['Compasia','FansTag AI 01','FansTag AI 02'].map((title,i)=><a href={path(i+3)} target="_blank" key={title}><img src={path(i+3)} alt={title}/><span>{title}</span></a>)}</div></div>
  </section>}
 function PGVG(){return <section className="subpage pgvg-page real-work-page"><Title index="03" kicker="PHOTOGRAPHY + VIDEOGRAPHY" title="Photo & Video" copy=""/><SectionHead number="01" title="Photography"/><div className="photo-strip">{photos.map(x=><a href={x.src} target="_blank" key={x.title} aria-label={`View full ${x.title} photograph`}><img loading="lazy" src={x.src} alt={x.title}/><span>{x.title}</span></a>)}</div><SectionHead number="02" title="Videography"/><div className="video-grid dark-grid">{films.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
-function Web(){return <section className="subpage web-page real-work-page"><Title index="04" kicker="LIVE PROJECTS" title="Web Experiences" copy=""/><div className="website-link-grid">{websites.map((x,i)=><article className={`website-card website-card-${i+1}`} key={x.title}><VideoCard title={x.title} video={x.video} poster={x.poster}/><a className="visit-site" href={x.url} target="_blank" rel="noreferrer"><span>0{i+1}</span> Visit live website <ExternalLink size={16}/></a></article>)}</div></section>}
+function Web(){return <WebsiteGallery/>}
 function Models(){return <section className="subpage models-page real-work-page"><Title index="05" kicker="BOOTH MODELLING" title="3D Modelling" copy=""/><div className="model-video-grid">{models.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
 function Lab(){return <section className="subpage lab-page real-work-page"><Title index="06" kicker="AI GENERATED VIDEO CONTENT" title="AIGC Video" copy=""/><SectionHead number="01" title="Commercial Video"/><div className="ai-video-grid">{commercial.map(x=><VideoCard key={x.title} {...x}/>)}</div><SectionHead number="02" title="Short Video"/><div className="ai-video-grid short-grid">{shortVideos.map(x=><VideoCard key={x.title} {...x}/>)}</div></section>}
 function ImageCarousel({title,kind,images}:{title:string;kind:string;images:string[]}){const [slide,setSlide]=useState(0);const move=(n:number)=>setSlide((slide+n+images.length)%images.length);return <article className="carousel-card"><button className="carousel-image" onClick={()=>images.length>1&&move(1)} aria-label={`Next ${title} slide`}><img loading="lazy" src={images[slide]} alt={`${title} — slide ${slide+1}`}/>{images.length>1&&<span>{slide+1} / {images.length}</span>}</button><footer><div><small>{kind}</small><h3>{title}</h3></div><div className="carousel-actions"><a href={images[slide]} target="_blank" aria-label={`View full ${title} artwork`}><ExternalLink/></a>{images.length>1&&<div className="carousel-controls"><button aria-label={`Previous ${title} slide`} onClick={()=>move(-1)}><ChevronLeft/></button><button aria-label={`Next ${title} slide`} onClick={()=>move(1)}><ChevronRight/></button></div>}</div></footer><div className="carousel-dots">{images.map((_,i)=><button aria-label={`View ${title} slide ${i+1}`} className={i===slide?'active':''} onClick={()=>setSlide(i)} key={i}/>)}</div></article>}
