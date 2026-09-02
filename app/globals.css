@@ -263,6 +263,10 @@
  .about-page-header{top:calc(94px + env(safe-area-inset-top))}
 }
 
+/* Newly added commercial films retain their native dimensions on every screen. */
+.lab-page .ai-video-grid .video-native .video-frame,
+.lab-page .ai-video-grid .video-native video{aspect-ratio:auto;height:auto;object-fit:contain}
+
 /* The added SHOWCASE films use their native portrait dimensions on every screen. */
 .lab-page .short-grid .video-showcase .video-frame,
 .lab-page .short-grid .video-showcase video{aspect-ratio:auto;height:auto;object-fit:contain}

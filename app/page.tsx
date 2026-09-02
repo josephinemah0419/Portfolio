@@ -24,7 +24,11 @@ const logoWorks=[
 const photos=['100Plus','Alcohol','Bird','Flower','Fragrance'].map((title,i)=>({title,src:`/works/photos/photo-${String(i+1).padStart(2,'0')}.webp`}));
 const films=['Hola Hola Banana — Daily Routine','Superbstone','Superbstone Beauty Shot','Superbstone Q&A'].map((title,i)=>({title,video:`/works/films/film-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/films/film-${String(i+1).padStart(2,'0')}.jpg`}));
 const models=['MIXUE Booth','CROCS Booth'].map((title,i)=>({title,video:`/works/models/model-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/models/model-${String(i+1).padStart(2,'0')}.jpg`}));
-const commercial=['AIGC System','Pellucid — Children','Pellucid — Elder','Pellucid','Solura — Testimonial','Solura','获客系统'].map((title,i)=>({title,video:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.jpg`,aspect:i===0||i===6?'landscape':'portrait'}));
+const commercial=[
+ ...['AIGC System','Pellucid — Children','Pellucid — Elder','Pellucid','Solura — Testimonial','Solura','获客系统'].map((title,i)=>({title,video:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/aigc/ai-video-${String(i+1).padStart(2,'0')}.jpg`,aspect:i===0||i===6?'landscape':'portrait'})),
+ {title:'Hola Hola',video:'/works/aigc/hola-hola.mp4',poster:'/works/aigc/hola-hola.jpg',aspect:'native'},
+ {title:'Hola Hola - Onboard',video:'/works/aigc/hola-hola-onboard.mp4',poster:'/works/aigc/hola-hola-onboard.jpg',aspect:'native'},
+];
 const shortVideos=[
  ...['Jora 01','Jora 02'].map((title,i)=>({title,video:`/works/aigc/ai-video-${String(i+8).padStart(2,'0')}.mp4`,poster:`/works/aigc/ai-video-${String(i+8).padStart(2,'0')}.jpg`,aspect:'short'})),
  ...['SHOWCASE','SHOWCASE (1)','SHOWCASE (2)'].map((title,i)=>({title,video:`/works/aigc/showcase${i?`-${i}`:''}.mp4`,poster:`/works/aigc/showcase${i?`-${i}`:''}.jpg`,aspect:'showcase'})),
