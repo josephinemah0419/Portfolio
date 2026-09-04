@@ -21,7 +21,10 @@ const logoWorks=[
  {title:'1826 Studio',kind:'Logo Design',images:[path(6)]},
  {title:'HY Fried Station',kind:'Logo Design',images:[path(7)]},
 ];
-const photos=['100Plus','Alcohol','Bird','Flower','Fragrance'].map((title,i)=>({title,src:`/works/photos/photo-${String(i+1).padStart(2,'0')}.webp`}));
+const photos=[
+ ...['100Plus','Alcohol','Bird','Flower','Fragrance'].map((title,i)=>({title,src:`/works/photos/photo-${String(i+1).padStart(2,'0')}.webp`})),
+ ...Array.from({length:6},(_,i)=>({title:`Jora ${i+1}`,src:`/works/photos/jora-${String(i+1).padStart(2,'0')}.webp`})),
+];
 const films=['Hola Hola Banana — Daily Routine','Superbstone','Superbstone Beauty Shot','Superbstone Q&A'].map((title,i)=>({title,video:`/works/films/film-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/films/film-${String(i+1).padStart(2,'0')}.jpg`}));
 const models=['MIXUE Booth','CROCS Booth'].map((title,i)=>({title,video:`/works/models/model-${String(i+1).padStart(2,'0')}.mp4`,poster:`/works/models/model-${String(i+1).padStart(2,'0')}.jpg`}));
 const commercial=[
