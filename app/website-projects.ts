@@ -18,10 +18,11 @@ export const websiteProjects: WebsiteProject[] = [
   { id: '1826-studio', title: '1826 Studio', url: 'https://1826studio.com/', thumbnail: '/works/websites/website-01.jpg', video: '/works/websites/website-01.mp4', description: 'Photography studio website with a showcase of its work and services.' },
   { id: 'hola-hola', title: 'Hola Hola', url: 'https://www.holahola.asia/', thumbnail: '/works/websites/website-02.jpg', video: '/works/websites/website-02.mp4', description: 'Hola Hola website project. Explore the live experience or recorded walkthrough.' },
   { id: 'fanstag-ai', title: 'FansTag AI', url: 'https://fanstag.asia/', thumbnail: '/works/websites/website-03.jpg', video: '/works/websites/website-03.mp4', description: 'An AI marketing platform website introducing its product and services.' },
+  { id: 'ff-cuisine', title: 'FF Cuisine', url: 'https://ffcuisine.vercel.app/', thumbnail: '/works/websites/website-04.jpg', video: '/works/websites/website-04.mp4', description: 'A modern culinary website presenting the FF Cuisine brand and dining experience.' },
 ].map(project => ({
   ...project,
   role: 'End-to-End Website Design & Development',
-  responsibilities: project.id === 'hola-hola'
+  responsibilities: project.id === 'hola-hola' || project.id === 'ff-cuisine'
     ? 'Codex · UI/UX Design · Front-End Development · Responsive Design · Interaction Development'
     : 'WordPress · UI/UX Design · Website Development · Responsive Design · Content Structure',
   iframeAllowed: true,
