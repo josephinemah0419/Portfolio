@@ -20,10 +20,12 @@ export const websiteProjects: WebsiteProject[] = [
   { id: 'fanstag-ai', title: 'FansTag AI', url: 'https://fanstag.asia/', thumbnail: '/works/websites/website-03.jpg', video: '/works/websites/website-03.mp4', description: 'An AI marketing platform website introducing its product and services.' },
   { id: 'ff-cuisine', title: 'FF Cuisine', url: 'https://ffcuisine.vercel.app/', thumbnail: '/works/websites/website-04.jpg', video: '/works/websites/website-04.mp4', description: 'A modern culinary website presenting the FF Cuisine brand and dining experience.' },
   { id: 'sushi-panda', title: 'Sushi Panda Hero Section Demo', url: 'https://sushipanda-liart.vercel.app/', thumbnail: '/works/websites/website-05.jpg', video: '/works/websites/website-05.mp4', description: 'An interactive hero-section demo for Sushi Panda, designed to introduce the brand with motion and personality.' },
+  { id: 'bibichik', title: 'Bibichik', url: 'https://bibichik-xi.vercel.app/', thumbnail: '/works/websites/website-06.jpg', video: '/works/websites/website-06.mp4', description: 'A playful digital experience for Bibichik, designed with an expressive brand presence and responsive interactions.' },
+  { id: 'aburii', title: 'Aburii', url: 'https://aburii.vercel.app/', thumbnail: '/works/websites/website-07.jpg', video: '/works/websites/website-07.mp4', description: 'A refined digital dining experience for Aburii, designed with expressive storytelling and responsive interactions.' },
 ].map(project => ({
   ...project,
   role: 'End-to-End Website Design & Development',
-  responsibilities: project.id === 'hola-hola' || project.id === 'ff-cuisine' || project.id === 'sushi-panda'
+  responsibilities: project.id === 'hola-hola' || project.id === 'ff-cuisine' || project.id === 'sushi-panda' || project.id === 'bibichik' || project.id === 'aburii'
     ? 'Codex · UI/UX Design · Front-End Development · Responsive Design · Interaction Development'
     : 'WordPress · UI/UX Design · Website Development · Responsive Design · Content Structure',
   iframeAllowed: true,
